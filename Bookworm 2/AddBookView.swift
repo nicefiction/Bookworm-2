@@ -54,13 +54,14 @@ struct AddBookView: View {
             Section {
 //               Stepper("\(rating) Stars",
 //                       value: $rating,
-//                       in: 0...5)
-               Picker("My Rating:",
-                      selection: $rating) {
-                  ForEach(0..<6) { (number: Int) in
-                     Text("\(number) \(number == 1 ? "Star" : "Stars")")
-                  }
-               }
+//                       in: 0...5) // OLIVIER
+//               Picker("My Rating:",
+//                      selection: $rating) {
+//                  ForEach(0..<6) { (number: Int) in
+//                     Text("\(number) \(number == 1 ? "Star" : "Stars")")
+//                  }
+//               } // PAUL HUDSON
+               RatingView(rating: $rating)
                TextField("My review...",
                          text: $review)
             }
