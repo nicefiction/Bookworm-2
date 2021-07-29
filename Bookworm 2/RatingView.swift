@@ -8,7 +8,7 @@ struct RatingView: View {
    
    // MARK: - PROPERTY WRAPPERS
    
-   @Binding var rating: Int
+   @Binding var rating: Int // OLIVIER : Read + write
    
    
    
