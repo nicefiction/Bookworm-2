@@ -1,11 +1,8 @@
-//
-//  Persistence.swift
-//  Bookworm 2
-//
-//  Created by Olivier Van hamme on 29/07/2021.
-//
+// Persistence.swift
 
 import CoreData
+
+
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -13,10 +10,10 @@ struct PersistenceController {
     static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-        for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
-        }
+//        for _ in 0..<10 {
+//            let newItem = Item(context: viewContext)
+//            newItem.timestamp = Date()
+//        }
         do {
             try viewContext.save()
         } catch {
