@@ -8,6 +8,14 @@ import CoreData
 
 struct DetailView: View {
    
+   // MARK: PROPERTY WRAPPERS
+   
+   @Environment(\.managedObjectContext) var moc
+   @Environment(\.presentationMode) var presentationMode
+   @State private var isShowingDeleteAlert: Bool = false
+   
+   
+   
    // MARK: PROPERTIES
    
    let book: Book
@@ -21,7 +29,7 @@ struct DetailView: View {
       GeometryReader { geometryProxy in
          VStack {
             ZStack(alignment: .bottom) {
-               Image(book.genre ?? "N/A")
+               Image(book.genre ?? "Fantasy")
                   .resizable()
                   .scaledToFit()
 //                  .frame(width: geometryProxy.size.width)
@@ -47,6 +55,35 @@ struct DetailView: View {
             Spacer()
          }
       }
+      .navigationBarItems(
+         trailing: Button(
+            action: {
+               print("The Delete button is tapped")
+               isShowingDeleteAlert.toggle()
+            }, label: {
+               Image(systemName: "trash.fill")
+                  .font(.title)
+            })
+            .alert(isPresented: $isShowingDeleteAlert) {
+               Alert(title: Text("Title"),
+                     message: Text("Message"),
+                     primaryButton: .destructive(
+                        Text("Delete"),
+                        action: { deleteBook(book) }),
+                     secondaryButton: .cancel())
+            }
+      )
+   }
+   
+   
+   
+   // MARK: METHODS
+   
+   func deleteBook(_ book: Book) {
+      
+      moc.delete(book)
+      try? moc.save()
+      presentationMode.wrappedValue.dismiss()
    }
 }
 

@@ -74,6 +74,15 @@ struct ContentView: View {
       /// `STEP 3` Save the Context :
       try? moc.save()
    }
+   
+   /// OLIVIER :
+   /// This is how we did it with the iExpense project :
+   /*
+    func removeItems(atOffsets offsets: IndexSet) {
+       
+       expenses.items.remove(atOffsets: offsets)
+    }
+    */
 }
 
 
