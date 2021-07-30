@@ -38,9 +38,11 @@ struct ContentView: View {
                   }
                }
             }
+            .onDelete(perform: deleteBooks)
          }
          .navigationTitle(Text("Bookworm"))
          .navigationBarItems(
+            leading: EditButton(),
             trailing:
                Button(action: {
                   print("The Add Book button is tapped.")
@@ -55,6 +57,22 @@ struct ContentView: View {
                             self.moc)
          }
       }
+   }
+   
+   
+   
+   // MARK: METHODS
+   
+   func deleteBooks(at offsets: IndexSet) {
+      
+      for offset in offsets {
+         /// `STEP 1` Find this book in our fetch request :
+         let book = books[offset]
+         /// `STEP 2` Delete it from the context :
+         moc.delete(book)
+      }
+      /// `STEP 3` Save the Context :
+      try? moc.save()
    }
 }
 
