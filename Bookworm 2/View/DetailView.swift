@@ -63,19 +63,18 @@ struct DetailView: View {
             }, label: {
                Image(systemName: "trash.fill")
                   .font(.title)
-            })
-            .alert(isPresented: $isShowingDeleteAlert) {
-               Alert(title: Text("Title"),
-                     message: Text("Message"),
-                     primaryButton: .destructive(
-                        Text("Delete"),
-                        action: { deleteBook(book) }),
-                     secondaryButton: .cancel())
-            }
-      )
+            }))
+      .alert(isPresented: $isShowingDeleteAlert) {
+         Alert(title: Text("Delete \(book.title ?? "N/A")"),
+               message: Text("Are you sure?"),
+               primaryButton: .destructive(
+                  Text("Delete"),
+                  action: { deleteBook(book) }),
+               secondaryButton: .cancel())
+      }
    }
-   
-   
+
+
    
    // MARK: METHODS
    
