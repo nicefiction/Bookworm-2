@@ -37,19 +37,19 @@ struct AddBookView: View {
                          text: $author)
                TextField("The name of the book...",
                          text: $title)
-//               Picker("Genre",
-//                      selection: $genreIndex) {
-//                  ForEach(0..<genres.count) { (index: Int) in
-//                     Text(genres[index])
-//                  }
-//               } // OLIVIER
                Picker("Genre",
-                      selection: $genre) { // OLIVIER : no start value
-                  ForEach(genres,
-                          id: \.self) { (genre: String) in
-                     Text(genre)
+                      selection: $genreIndex) {
+                  ForEach(0..<genres.count) { (index: Int) in
+                     Text(genres[index])
                   }
-                      }
+               } // OLIVIER
+//               Picker("Genre",
+//                      selection: $genre) { // OLIVIER : no start value
+//                  ForEach(genres,
+//                          id: \.self) { (genre: String) in
+//                     Text(genre)
+//                  }
+//                      } // PAUL HUDSON
             }
             Section {
 //               Stepper("\(rating) Stars",
