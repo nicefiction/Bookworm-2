@@ -24,9 +24,20 @@ struct DetailView: View {
    
    // MARK: COMPUTED PROPERTIES
    
+   var dateString: String {
+      
+      let dateFormatter: DateFormatter = DateFormatter()
+      dateFormatter.timeStyle = DateFormatter.Style.short
+      dateFormatter.dateStyle = DateFormatter.Style.long
+      let dateString = dateFormatter.string(from: book.date ?? Date())
+      
+      return dateString
+   }
+   
+   
    var body: some View {
       
-      GeometryReader { geometryProxy in
+      return GeometryReader { geometryProxy in
          VStack {
             ZStack(alignment: .bottom) {
                Image(book.genre ?? "Fantasy")
@@ -48,8 +59,12 @@ struct DetailView: View {
             Text(book.author ?? "N/A")
                .font(.title)
                .foregroundColor(.secondary)
-            Text(book.review ?? "N/A")
-               .padding()
+            HStack {
+               Text(dateString)
+                  .foregroundColor(.secondary)
+               Text(book.review ?? "N/A")
+            }
+            .padding()
             RatingView(rating: .constant(Int(book.rating)))
                .font(.largeTitle)
             Spacer()
@@ -107,6 +122,7 @@ struct DetailView_Previews: PreviewProvider {
       let previewBook = Book(context: moc)
       
       previewBook.author = "Dorothy"
+      previewBook.date = Date()
       previewBook.genre = "Fantasy"
       previewBook.rating = 4
       previewBook.review = "Nice review."

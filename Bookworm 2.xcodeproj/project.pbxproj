@@ -17,6 +17,7 @@
 		09ABD23326B2E58100A28653 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ABD23226B2E58100A28653 /* RatingView.swift */; };
 		09ABD23726B3034700A28653 /* EmojiRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ABD23626B3034700A28653 /* EmojiRatingView.swift */; };
 		09ABD25F26B3ED3E00A28653 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09ABD25E26B3ED3E00A28653 /* DetailView.swift */; };
+		09DA96FC26B538D10047EFE2 /* SelectingDatesAndTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DA96FB26B538D10047EFE2 /* SelectingDatesAndTimes.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		09ABD23226B2E58100A28653 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		09ABD23626B3034700A28653 /* EmojiRatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiRatingView.swift; sourceTree = "<group>"; };
 		09ABD25E26B3ED3E00A28653 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		09DA96FB26B538D10047EFE2 /* SelectingDatesAndTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectingDatesAndTimes.swift; sourceTree = "<group>"; };
+		09DA96FF26B54AB20047EFE2 /* WorkingWithDates.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = WorkingWithDates.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,7 @@
 		097D531826B2926E00CDFB3B /* Bookworm 2 */ = {
 			isa = PBXGroup;
 			children = (
+				09DA96FA26B538800047EFE2 /* Date practice */,
 				097D531926B2926E00CDFB3B /* Bookworm_2App.swift */,
 				097D532426B2927300CDFB3B /* Bookworm_2.xcdatamodeld */,
 				09ABD25D26B3ED1F00A28653 /* View */,
@@ -93,6 +97,15 @@
 				09ABD23226B2E58100A28653 /* RatingView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		09DA96FA26B538800047EFE2 /* Date practice */ = {
+			isa = PBXGroup;
+			children = (
+				09DA96FB26B538D10047EFE2 /* SelectingDatesAndTimes.swift */,
+				09DA96FF26B54AB20047EFE2 /* WorkingWithDates.playground */,
+			);
+			path = "Date practice";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -164,6 +177,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09DA96FC26B538D10047EFE2 /* SelectingDatesAndTimes.swift in Sources */,
 				097D532626B2927300CDFB3B /* Bookworm_2.xcdatamodeld in Sources */,
 				09ABD25F26B3ED3E00A28653 /* DetailView.swift in Sources */,
 				097D532326B2927300CDFB3B /* Persistence.swift in Sources */,
