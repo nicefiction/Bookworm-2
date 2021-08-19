@@ -37,7 +37,7 @@ struct DetailView: View {
    
    var body: some View {
       
-      return GeometryReader { geometryProxy in
+      GeometryReader { geometryProxy in
          VStack {
             ZStack(alignment: .bottom) {
                Image(book.genre ?? "Fantasy")

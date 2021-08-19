@@ -1,4 +1,8 @@
 // RatingView.swift
+// MARK: SOURCE
+// https://www.hackingwithswift.com/books/ios-swiftui/fixing-bookworm
+
+// MARK: - LIBRARIES -
 
 import SwiftUI
 
@@ -37,6 +41,13 @@ struct RatingView: View {
                .onTapGesture {
                   rating = ratingNumber
                }
+               .accessibility(removeTraits: .isImage)
+               .accessibility(label: Text("\(ratingNumber == 1 ? "1 star" : "\(ratingNumber) stars")"))
+               .accessibility(addTraits: ratingNumber > rating ? .isButton : [.isButton , .isSelected])
+            /// This tells the system that each star is actually a button , so users know it can be tapped .
+            /// While we are here ,
+            /// we can make VoiceOver do an even better job by adding a second trait , `.isSelected`,
+            /// if the star is already highlighted .
          }
       }
    }
